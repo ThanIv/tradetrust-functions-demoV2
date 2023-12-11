@@ -32,8 +32,7 @@ export const corsOrigin = (origin, callback) => {
 export const checkApiKey = (req, res, next) => {
   const apiKey = req.headers["x-api-key"];
   if (apiKey !== process.env.API_KEY) {
-    // return res.status(400).send(ERROR_MESSAGE.API_KEY_INVALID,apiKey,process.env.API_KEY);
-    return res.status(400).send(apiKey);
+    return res.status(400).send(ERROR_MESSAGE.API_KEY_INVALID,apiKey,process.env.API_KEY);
   }
   next();
 };
